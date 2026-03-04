@@ -1,18 +1,20 @@
 #include <Arduino.h>
 
-// put function declarations here:
-int myFunction(int, int);
+#include "esp8266comport.h"
+#include "cli.h"
+
+CliComPort *uart0 = NULL;
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  cliCreateComPort(&uart0, esp8266comportCreateSerialTx(0,76800));
+  cliAddComPort(uart0);
+
+  cliPrintPrompt(uart0, TXT_GREEN);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  if(cliProcessRxData(uart0)){
+    cliPrintPrompt(uart0, TXT_CYAN);
+  }
+ 
 }
