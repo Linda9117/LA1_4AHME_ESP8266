@@ -1,0 +1,11 @@
+# PlatformIO
+.pio/
+
+# VS Code
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# OS junk
+.DS_Store
+Thumbs.db
