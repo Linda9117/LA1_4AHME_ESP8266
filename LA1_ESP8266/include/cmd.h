@@ -22,6 +22,9 @@ extern "C" {
 // INCLUDES
 /****************************************************/
 
+#include <stdint.h>
+#include "cli.h"
+
 /****************************************************/
 // GLOBAL DEFINES
 /****************************************************/
@@ -45,6 +48,9 @@ extern "C" {
 /****************************************************/
 // GLOBAL FUNCTIONS
 /****************************************************/
+
+//execute commands defined by user
+uint8_t cmdExecuteCommand(CliComPort *cliComPort);
 
 #if defined(__cplusplus)
 } // extern "C"

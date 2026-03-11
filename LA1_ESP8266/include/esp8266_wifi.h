@@ -1,56 +1,58 @@
-/**
- * @file cmd.cpp
- * @author Steinberger
- * @date date
- * @brief comand execution
+/*
+ * File:            template.h
+ * Author:          XYZ
+ * Date             DD.MM.YYYY
+ *
+ * Description:
+ * Providing ...
+ *
+ * License:
+ * This code is released under Creative Commons Legal Code CC0 1.0 Universal
+ *
+ * Contact:
+ * email
  */
+
+#pragma once
 
 /****************************************************/
 // INCLUDES
 /****************************************************/
 
-#include "cmd.h"
-#include <string.h>
+#include <Arduino.h>
+#include <ESP8266WiFi.h>
 
 /****************************************************/
-// LOCAL DEFINES
-/****************************************************/
-
-/****************************************************/
-// LOCAL ENUMS
+// GLOBAL DEFINES
 /****************************************************/
 
 /****************************************************/
-// LOCAL STRUCT TYPE DEFINITION
+// GLOBAL ENUMS
 /****************************************************/
 
 /****************************************************/
-// LOCAL STATIC STRUCTS and VARIABLES
+// GLOBAL STRUCTURE TYPE DEFINITION
 /****************************************************/
 
 /****************************************************/
-// LOCAL FUNCTIONS
+// GLOBAL STRUCTURE VARIABLE DECLARATION, INIT
 /****************************************************/
 
 /****************************************************/
-// LOCAL MACROS
+// GLOBAL MACROS
 /****************************************************/
 
 /****************************************************/
 // GLOBAL FUNCTIONS
 /****************************************************/
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-uint8_t cmdExecuteCommand(CliComPort *cliComPort){
-    const char *cmd = cliGetFirstToken(cliComPort); //variable die in der lage ist sich einen speicherort zu merken
+bool esp8266wifiConnect(const char* wifiSSID, const char* wifiPWD);
+bool esp8266wifiCheckConnection(const char* wifiSSID, const char* wifiPWD);
 
-    if(cmd == NULL){
-        return 0;
-    }
-
-    if(strcmp(cmd, "cls") == 0){
-        cliClearScreen(cliComPort);
-    }
-
-    return 0;
+#ifdef __cplusplus
 }
+#endif
